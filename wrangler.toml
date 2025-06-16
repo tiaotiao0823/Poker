@@ -1,0 +1,20 @@
+name = "texas-holdem-poker"
+type = "webpack"
+workers_dev = true
+route = "08230823.xyz/*"
+
+[site]
+bucket = "./client/build"
+entry-point = "workers-site"
+
+[build]
+command = "cd client && npm install && npm run build"
+upload.format = "service-worker"
+
+[env.production]
+name = "texas-holdem-poker-prod"
+route = "08230823.xyz/*"
+
+[env.production.vars]
+REACT_APP_API_URL = "https://08230823.xyz/api"
+REACT_APP_WS_URL = "wss://08230823.xyz/ws" 
